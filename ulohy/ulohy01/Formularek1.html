@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simon Leviev Form</title>
+    <style>
+        :root {
+            --light-background-image: url('');
+            --dark-background-image: url('');
+
+        }
+
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transition: background-color 0.6s, color 0.6s;
+            font-family: Arial, sans-serif;
+        }
+
+        body.dark-mode {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="file"],
+
+        select,
+        textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            width: 80%;
+        }
+
+        input[type="submit"] {
+            background-color: #00dc0b;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="file"] {
+            background-color: #00dc0b;
+            color: white;
+            border: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .dark-mode-switch {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .round-switch {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #ccc;
+            position: relative;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .round-switch input[type="checkbox"] {
+            display: none;
+        }
+
+        .round-switch input[type="checkbox"]+label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: white;
+            transition: transform 0.6s;
+        }
+
+        .round-switch input[type="checkbox"]:checked+label {
+            transform: translateX(30px);
+        }
+
+        .table-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 22px;
+
+        }
+
+
+        .container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+        }
+
+
+        .container:hover input~.checkmark {
+            background-color: #ccc;
+        }
+
+
+        .container input:checked~.checkmark {
+            background-color: #00dc0b;
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+
+        .container input:checked~.checkmark:after {
+            display: block;
+        }
+
+
+        .container .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h2>Dark Mode</h2>
+        <div class="round-switch">
+            <input type="checkbox" id="dark-mode-switch">
+            <label for="dark-mode-switch"></label>
+        </div>
+    </div>
+
+    <form action="http://jecna.lmsoft.cz/form.php" method="post" enctype="multipart/form-data">
+        <h2>Simon Leviev Form</h2>
+        <label for="jname">Name:</label><br>
+        <input type="text" id="jname" name="jname" placeholder="Simon" required><br>
+
+        <label for="lastname">Last Name:</label><br>
+        <input type="text" id="lastname" name="lastname" placeholder="Leviev" required><br>
+
+        <label for="photo">Photo:</label><br>
+        <input type="file" id="photo" name="photo" accept="image/*"><br>
+
+        <label for="dateofbirth">Date of Birth:</label><br>
+        <input type="date" id="dateofbirth" name="dateofbirth" required><br>
+
+        <label for="phone">Phone Number (nine digits):</label><br>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{9}" placeholder="123456789"><br>
+
+        <label for="parametr1">Choose your gender:</label><br>
+        <select id="parametr1" name="parametr1">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <label class="container">Are you willing to sacrifice yourself for Simon ?
+            <input type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+        </label>
+        <label for="parametr2">How much money are you able to send at once ?</label><br>
+        <input type="number" id="parametr2" name="parametr2" placeholder="100000000" required><br>
+
+
+        <label for="parametr3">Why are you the most suitable for Simon ?</label><br>
+        <textarea id="parametr3" name="parametr3" rows="3" cols="100"
+            placeholder="I am ready to take a loan for Simons dinner" required></textarea><br>
+
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        const darkModeSwitch = document.getElementById("dark-mode-switch");
+        const body = document.body;
+
+        if (localStorage.getItem("darkMode") === "enabled") {
+            enableDarkMode();
+        }
+
+        darkModeSwitch.addEventListener("change", () => {
+            if (darkModeSwitch.checked) {
+                enableDarkMode();
+            } else {
+                disableDarkMode();
+            }
+        });
+
+        function enableDarkMode() {
+            body.classList.add("dark-mode");
+            localStorage.setItem("darkMode", "enabled");
+        }
+
+        function disableDarkMode() {
+            body.classList.remove("dark-mode");
+            localStorage.setItem("darkMode", "disabled");
+        }
+
+    </script>
+</body>
+
+</html>

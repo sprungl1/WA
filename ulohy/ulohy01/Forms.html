@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <h2>Not a scam form</h2>
+
+  <form action="http://jecna.lmsoft.cz/form.php">
+
+    <label for="ijmeno">First name:</label><br>
+    <input type="text" id="ijmeno" name="First name" value=""><br>
+    <label for="ljmeno">Last name:</label><br>
+    <input type="text" id="ljmeno" name="Last name" value=""><br><br>
+
+    <label for="datummin">What date is Today</label>
+    <input type="date" id="datummin" name="datummin" min="2023-10-08"><br><br>
+
+    <h4>Select your bitcoin wallet</h4>
+
+    <label for="files">Select file:</label>
+    <input type="file" id="files" name="files" single><br><br>
+
+    <h4>Select your favourite browser</h4>
+
+    <input list="browsers">
+    <datalist id="browsers">
+      <option value="Edge">
+      <option value="Firefox">
+      <option value="Chrome">
+      <option value="OperaGX">
+      <option value="Safari">
+    </datalist>
+
+    <h4>Choose your favourite city</h4>
+
+    <input type="radio" id="brno" name="fav_city" value="Brno">
+    <label for="brno">Brno</label><br>
+    <input type="radio" id="praha" name="fav_city" value="Praha">
+    <label for="praha">Praha</label><br>
+    <input type="radio" id="ostrava" name="fav_city" value="Ostrava">
+    <label for="ostrava">Ostrava</label><br><br>
+
+    <h4>What do you own</h4>
+
+    <input type="checkbox" id="axe" name="axe" value="Axe">
+    <label for="axe"> Axe </label><br>
+    <input type="checkbox" id="pickaxe" name="pickaxe" value="Pickaxe">
+    <label for="pickaxe"> Pickaxe </label><br>
+    <input type="checkbox" id="tiktok" name="tiktok" value="Tiktok">
+    <label for="tiktok"> Tiktok account </label>
+
+    <p><label for="quantity">How many cars do you want to receive:</label></p>
+    <input type="number" id="quantity" name="quantity" min="1" max="10">
+
+    <p><label for="feedback">Please enter your opinion on this site:</label></p>
+    <input type="text" id="feedback" name="feedback" size="50" maxlength="100"><br>
+
+    <p><input type="submit" value="Submit"></p>
+
+  </form>
+
+</body>
+
+</html>
